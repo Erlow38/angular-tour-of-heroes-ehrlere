@@ -36,59 +36,46 @@ export class HeroDetailComponent implements OnInit {
   }
 
   pointAttribution(attribute: string): void {
-    if (this.hero) {
-      // Calculez le total des points en fonction des attributs
-      this.calculateTotalPoints();
-  
-      // Vérifiez si le total des points disponibles est supérieur à zéro
-      if (this.totalPoints > 0) {
-        switch (attribute) {
-          case 'attack':
-            this.hero.attack++;
-            this.totalPoints--;
-            break;
-          case 'dodge':
-            this.hero.dodge++;
-            this.totalPoints--;
-            break;
-          case 'damage':
-            this.hero.damage++;
-            this.totalPoints--;
-            break;
-          case 'hp':
-            this.hero.hp++;
-            this.totalPoints--;
-            break;
-          default:
-            break;
-        }
-      } else {
-        alert('Vous n\'avez plus de points à attribuer pour cette compétence.');
-        /*switch (attribute) {
-          case 'attack':
+  if (this.hero) {
+    // Calculez le total des points en fonction des attributs
+    this.calculateTotalPoints();
+
+    // Si le total est négatif, affichez une alerte
+    if (this.totalPoints < 0) {
+      alert('You have no more points to attribute!');
+
+      switch (attribute) {
+        case 'attack':
+          if (this.hero.attack > 0) {
             this.hero.attack--;
-            this.totalPoints++;
-            break;
-          case 'dodge':
+            this.calculateTotalPoints(); // Recalculez le total des points
+          }
+          break;
+        case 'dodge':
+          if (this.hero.dodge > 0) {
             this.hero.dodge--;
-            this.totalPoints++;
-            break;
-          case 'damage':
+            this.calculateTotalPoints(); // Recalculez le total des points
+          }
+          break;
+        case 'damage':
+          if (this.hero.damage > 0) {
             this.hero.damage--;
-            this.totalPoints++;
-            break;
-          case 'hp':
+            this.calculateTotalPoints(); // Recalculez le total des points
+          }
+          break;
+        case 'hp':
+          if (this.hero.hp > 0) {
             this.hero.hp--;
-            this.totalPoints++;
-            break;
-          default:
-            break;
-        }*/
+            this.calculateTotalPoints(); // Recalculez le total des points
+          }
+          break;
+        default:
+          break;
       }
     }
   }
-  
-  
+}
+
 
   private calculateTotalPoints(): void {
     if (this.hero) {
