@@ -2,26 +2,26 @@
 
     <h2>{{hero.name | uppercase}} Details</h2>
     <div><span>id: </span>{{hero.id}}</div>
-    <span>points to be awarded remaining: <label>{{hero.points}}</label></span>
+    <span>Points restants à attribuer : <label>{{ totalPoints }}</label></span>
     <div>
       <label for="hero-name">Hero name: </label>
       <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
     </div>
     <div>
       <label for="hero-attack">Hero attack: </label>
-      <input (input)="pointAttribution()" type="number" min="0" id="hero-attack" [(ngModel)]="hero.attack" placeholder="attack">
+      <input (input)="pointAttribution('attack')" type="number" min="1" max="37" id="hero-attack" [(ngModel)]="hero.attack" placeholder="attack">
     </div>
     <div>
       <label for="hero-dodge">Hero dodge: </label>
-      <input (input)="pointAttribution()" type="number" min="0" id="hero-dodge" [(ngModel)]="hero.dodge" placeholder="dodge">
+      <input (input)="pointAttribution('dodge')" type="number" min="1" max="37" id="hero-dodge" [(ngModel)]="hero.dodge" placeholder="dodge">
     </div>
     <div>
       <label for="hero-damage">Hero hero-damage: </label>
-      <input (input)="pointAttribution()" type="number" min="0" id="hero-damage" [(ngModel)]="hero.damage" placeholder="damage">
+      <input (input)="pointAttribution('damage')" type="number" min="1" max="37" id="hero-damage" [(ngModel)]="hero.damage" placeholder="damage">
     </div>
     <div>
       <label for="hero-health">Hero health: </label>
-      <input (input)="pointAttribution()" type="number" min="0" id="hero-health" [(ngModel)]="hero.hp" placeholder="health">
+      <input (input)="pointAttribution('health')" type="number" min="1" max="37" id="hero-health" [(ngModel)]="hero.hp" placeholder="health">
     </div>
   
   </div>
