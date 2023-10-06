@@ -1,28 +1,48 @@
 <div *ngIf="hero">
-
-    <h2>{{hero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{hero.id}}</div>
-    <span>Points restants à attribuer : <label>{{ hero.points }}</label></span>
-    <div>
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ hero.id }}</div>
+  <form class="hero-form" [formGroup]="heroForm">
+    <span>Points restants à attribuer : <label>{{ 40 - this.heroForm.value.attack - this.heroForm.value.dodge - this.heroForm.value.damage - this.heroForm.value.hp }}</label></span>
+    <div class="attribute-error" *ngIf="heroForm.controls['hp'].hasError('max')">
+      You have only 40 points to attribute.
+    </div>
+    <div class="attribute-container">
       <label for="hero-name">Hero name: </label>
-      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+      <input id="hero-name" formControlName="name" placeholder="name">
+      <div class="attribute-error" *ngIf="heroForm.controls['name'].invalid">
+        Name is required.
+      </div>
     </div>
-    <div>
+    <div class="attribute-container">
       <label for="hero-attack">Hero attack: </label>
-      <input (input)="pointAttribution('attack')" type="number" [min]="1" [max]="(hero.points + hero.attack)" id="hero-attack" [(ngModel)]="hero.attack" placeholder="attack">
+      <input (input)="pointAttribut('attack')" id="hero-attack" formControlName="attack" type="number">
+      <div class="attribute-error" *ngIf="heroForm.controls['attack'].hasError('min')">
+        1 point minimum is required.
+      </div>
     </div>
-    <div>
+    <div class="attribute-container">
       <label for="hero-dodge">Hero dodge: </label>
-      <input (input)="pointAttribution('dodge')" type="number" [min]="1" [max]="(hero.points + hero.dodge)" id="hero-dodge" [(ngModel)]="hero.dodge" placeholder="dodge">
+      <input (input)="pointAttribut('dodge')" id="hero-dodge" formControlName="dodge" type="number">
+      <div class="attribute-error" *ngIf="heroForm.controls['dodge'].hasError('min')">
+        1 point minimum is required.
+      </div>
     </div>
-    <div>
+    <div class="attribute-container">
       <label for="hero-damage">Hero damage: </label>
-      <input (input)="pointAttribution('damage')" type="number" [min]="1" [max]="(hero.points + hero.damage)" id="hero-damage" [(ngModel)]="hero.damage" placeholder="damage">
+      <input (input)="pointAttribut('damage')" id="hero-damage" formControlName="damage" type="number">
+      <div class="attribute-error" *ngIf="heroForm.controls['damage'].hasError('min')">
+        1 point minimum is required.
+      </div>
     </div>
-    <div>
+    <div class="attribute-container">
       <label for="hero-health">Hero health: </label>
-      <input (input)="pointAttribution('health')" type="number" [min]="1" [max]="(hero.points + hero.hp)" id="hero-health" [(ngModel)]="hero.hp" placeholder="health">
+      <input (input)="pointAttribut('hp')" id="hero-health" formControlName="hp" type="number">
+      <div class="attribute-error" *ngIf="heroForm.controls['hp'].hasError('min')">
+        1 point minimum is required.
+      </div>
     </div>
-    
-  
-  </div>
+  </form>
+
+  <button type="button" (click)="goBack()">go back</button>
+  <button type="submit" (click)="savePoints()" [disabled]="heroForm.invalid">Save</button>
+</div>
