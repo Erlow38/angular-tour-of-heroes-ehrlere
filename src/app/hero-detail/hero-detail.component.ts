@@ -84,6 +84,21 @@ export class HeroDetailComponent {
       alert("Hero updated");
     }
   }
+
+  resetPoint() {
+    if (this.hero) {
+      this.remainingPoints = 36;
+      
+      // Réinitialisez les valeurs dans le formulaire en utilisant patchValue
+      this.heroForm.patchValue({
+        attack: 1,
+        dodge: 1,
+        damage: 1,
+        hp: 1
+      });
+    }
+  }
+  
   
 
   goBack(): void {
