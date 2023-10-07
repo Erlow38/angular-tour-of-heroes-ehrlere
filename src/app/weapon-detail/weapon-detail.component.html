@@ -1,0 +1,46 @@
+<div *ngIf="weapon">
+    <h2>{{ weapon.name | uppercase }} Details</h2>
+    <div><span>id: </span>{{ weapon.id }}</div>
+    <form class="weapon-form" [formGroup]="weaponForm">
+      <span>Total of points : <label>{{ 0 - this.weaponForm.value.attack - this.weaponForm.value.dodge - this.weaponForm.value.damage - this.weaponForm.value.hp }}</label></span>
+      <div class="attribute-error" *ngIf="(0 - this.weaponForm.value.attack - this.weaponForm.value.dodge - this.weaponForm.value.damage - this.weaponForm.value.hp) != 0">
+        The total of points must be 0.
+      </div>
+      <div class="attribute-container">
+        <label for="weapon-name">Weapon name: </label>
+        <input id="weapon-name" formControlName="name" placeholder="name">
+        <div class="attribute-error" *ngIf="weaponForm.controls['name'].invalid">
+          Name is required.
+        </div>
+      </div>
+      <div class="attribute-container">
+        <label for="weapon-attack">Weapon attack: </label>
+        <input (input)="pointAttribut('attack')" id="weapon-attack" formControlName="attack" type="number">
+        <div class="attribute-error" *ngIf="weaponForm.controls['attack'].hasError('min')">
+        </div>
+      </div>
+      <div class="attribute-container">
+        <label for="weapon-dodge">Weapon dodge: </label>
+        <input (input)="pointAttribut('dodge')" id="weapon-dodge" formControlName="dodge" type="number">
+        <div class="attribute-error" *ngIf="weaponForm.controls['dodge'].hasError('min')">
+        </div>
+      </div>
+      <div class="attribute-container">
+        <label for="weapon-damage">Weapon damage: </label>
+        <input (input)="pointAttribut('damage')" id="weapon-damage" formControlName="damage" type="number">
+        <div class="attribute-error" *ngIf="weaponForm.controls['damage'].hasError('min')">
+        </div>
+      </div>
+      <div class="attribute-container">
+        <label for="weapon-health">Weapon health: </label>
+        <input (input)="pointAttribut('hp')" id="weapon-health" formControlName="hp" type="number">
+        <div class="attribute-error" *ngIf="weaponForm.controls['hp'].hasError('min')">
+        </div>
+      </div>
+    </form>
+  
+    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="resetPoint()">reset</button>
+    <button type="submit" (click)="savePoints()" [disabled]="(0 - this.weaponForm.value.attack - this.weaponForm.value.dodge - this.weaponForm.value.damage - this.weaponForm.value.hp) != 0 || weaponForm.invalid">Save</button>
+  </div>
+  

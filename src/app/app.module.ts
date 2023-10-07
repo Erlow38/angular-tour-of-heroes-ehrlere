@@ -9,7 +9,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WeaponsComponent } from './weapons/weapons.component';
-import { ReactiveFormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component'; 
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    WeaponsComponent
+    WeaponsComponent,
+    WeaponDetailComponent
   ],
   imports: [
     BrowserModule,

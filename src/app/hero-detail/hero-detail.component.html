@@ -2,7 +2,7 @@
   <h2>{{ hero.name | uppercase }} Details</h2>
   <div><span>id: </span>{{ hero.id }}</div>
   <form class="hero-form" [formGroup]="heroForm">
-    <span>Points restants à attribuer : <label>{{ 40 - this.heroForm.value.attack - this.heroForm.value.dodge - this.heroForm.value.damage - this.heroForm.value.hp }}</label></span>
+    <span>Points remaining to be awarded : <label>{{ 40 - this.heroForm.value.attack - this.heroForm.value.dodge - this.heroForm.value.damage - this.heroForm.value.hp }}</label></span>
     <div class="attribute-error" *ngIf="heroForm.controls['hp'].hasError('max')">
       You have only 40 points to attribute.
     </div>
