@@ -15,25 +15,25 @@
       </div>
       <div class="attribute-container">
         <label for="weapon-attack">Weapon attack: </label>
-        <input (input)="pointAttribut('attack')" id="weapon-attack" formControlName="attack" type="number">
+        <input (input)="pointAttribut('attack')" min="-5" max="5" id="weapon-attack" formControlName="attack" type="number">
         <div class="attribute-error" *ngIf="weaponForm.controls['attack'].hasError('min')">
         </div>
       </div>
       <div class="attribute-container">
         <label for="weapon-dodge">Weapon dodge: </label>
-        <input (input)="pointAttribut('dodge')" id="weapon-dodge" formControlName="dodge" type="number">
+        <input (input)="pointAttribut('dodge')" min="-5" max="5" id="weapon-dodge" formControlName="dodge" type="number">
         <div class="attribute-error" *ngIf="weaponForm.controls['dodge'].hasError('min')">
         </div>
       </div>
       <div class="attribute-container">
         <label for="weapon-damage">Weapon damage: </label>
-        <input (input)="pointAttribut('damage')" id="weapon-damage" formControlName="damage" type="number">
+        <input (input)="pointAttribut('damage')" min="-5" max="5" id="weapon-damage" formControlName="damage" type="number">
         <div class="attribute-error" *ngIf="weaponForm.controls['damage'].hasError('min')">
         </div>
       </div>
       <div class="attribute-container">
         <label for="weapon-health">Weapon health: </label>
-        <input (input)="pointAttribut('hp')" id="weapon-health" formControlName="hp" type="number">
+        <input (input)="pointAttribut('hp')" min="-5" max="5" id="weapon-health" formControlName="hp" type="number">
         <div class="attribute-error" *ngIf="weaponForm.controls['hp'].hasError('min')">
         </div>
       </div>
