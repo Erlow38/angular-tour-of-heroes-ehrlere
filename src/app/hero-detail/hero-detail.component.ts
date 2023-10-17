@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importez Validators
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { Weapon } from '../weapon';
+import { WeaponService } from '../weapon.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -12,6 +14,7 @@ import { HeroService } from '../hero.service';
 })
 export class HeroDetailComponent {
   hero: Hero | undefined;
+  weapons: Weapon[] = [];
   heroForm: FormGroup;
   remainingPoints: number = 36;
 
@@ -19,19 +22,22 @@ export class HeroDetailComponent {
     private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private weaponService: WeaponService
   ) {
     this.heroForm = this.fb.group({
       name: ['', Validators.required], 
       attack: ['1', [Validators.required, Validators.min(1), Validators.max(this.remainingPoints)]], 
       dodge: ['1', [Validators.required, Validators.min(1), Validators.max(this.remainingPoints)]], 
       damage: ['1', [Validators.required, Validators.min(1), Validators.max(this.remainingPoints)]],
-      hp: ['1', [Validators.required, Validators.min(1), Validators.max(this.remainingPoints)]]
+      hp: ['1', [Validators.required, Validators.min(1), Validators.max(this.remainingPoints)]],
+      weapon : ['0', Validators.required]
     });
   }
 
   ngOnInit(): void {
     this.getHero();
+    this.getWeapons();
   }
 
   getHero(): void {
@@ -41,6 +47,11 @@ export class HeroDetailComponent {
         this.hero = hero;
         this.heroForm.patchValue(hero); 
       });
+  }
+
+  getWeapons(): void {
+    this.weaponService.getWeapons()
+    .subscribe(weapons => this.weapons = weapons);
   }
 
   pointAttribut(attribute: string): void {
@@ -79,6 +90,7 @@ export class HeroDetailComponent {
       this.hero.dodge = heroFormValue.dodge;
       this.hero.damage = heroFormValue.damage;
       this.hero.hp = heroFormValue.hp;
+      this.hero.weapon = heroFormValue.weapon;
       this.hero.points = 40 - this.hero.attack - this.hero.dodge - this.hero.damage - this.hero.hp;
       alert("Hero updated");
     }

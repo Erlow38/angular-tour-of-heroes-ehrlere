@@ -6,4 +6,5 @@ export interface Hero {
     damage: number;
     hp: number;
     points: number;
+    weapon: number;
   }

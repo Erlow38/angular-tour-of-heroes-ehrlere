@@ -41,6 +41,13 @@
         1 point minimum is required.
       </div>
     </div>
+    <div class="attribute-container">      
+      <label for="hero-health">Hero weapon: </label>
+      <select name="weapons-select" id="weapons-select" formControlName="weapon">
+        <option value="0">no weapon</option>
+        <option *ngFor="let weapon of weapons" value={{weapon.id}}>{{weapon.name}}</option>
+      </select>
+    </div>
   </form>
 
   <button type="button" (click)="goBack()">go back</button>
