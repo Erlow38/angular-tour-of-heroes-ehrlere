@@ -10,7 +10,10 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WeaponsComponent } from './weapons/weapons.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component'; 
+import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore'; 
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()) 
   ],
   providers: [],
   bootstrap: [AppComponent]

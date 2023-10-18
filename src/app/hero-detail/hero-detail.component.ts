@@ -41,7 +41,7 @@ export class HeroDetailComponent {
   }
 
   getHero(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = this.route.snapshot.paramMap.get('id') ? this.route.snapshot.paramMap.get('id')! : "0";
     this.heroService.getHero(id)
       .subscribe(hero => {
         this.hero = hero;
@@ -92,9 +92,19 @@ export class HeroDetailComponent {
       this.hero.hp = heroFormValue.hp;
       this.hero.weapon = heroFormValue.weapon;
       this.hero.points = 40 - this.hero.attack - this.hero.dodge - this.hero.damage - this.hero.hp;
+      this.heroService.updateHero(this.hero);
       alert("Hero updated");
     }
   }
+
+  deleteHero() {
+    if (this.hero) {
+      this.heroService.deleteHero(this.hero.id.toString());
+      alert("Hero deleted");
+      this.goBack();
+    }
+  }
+
 
   resetPoint() {
     if (this.hero) {
@@ -109,8 +119,6 @@ export class HeroDetailComponent {
       });
     }
   }
-  
-  
 
   goBack(): void {
     this.location.back();

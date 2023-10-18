@@ -37,7 +37,7 @@ export class WeaponDetailComponent {
   }
 
   getWeapon(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = this.route.snapshot.paramMap.get('id') ? this.route.snapshot.paramMap.get('id')! : "0";
     this.weaponService.getWeapon(id)
       .subscribe(weapon => {
         this.weapon = weapon;
@@ -50,6 +50,14 @@ export class WeaponDetailComponent {
     }
   }
 
+  deleteWeapon() {
+    if (this.weapon) {
+      this.weaponService.deleteWeapon(this.weapon.id.toString());
+      alert("Weapon deleted");
+      this.goBack();
+    }
+  }
+
   savePoints() {
     //récupérer les valeurs du formulaire
     const weaponFormValue = this.weaponForm.value;
@@ -59,7 +67,8 @@ export class WeaponDetailComponent {
       this.weapon.attack = weaponFormValue.attack;
       this.weapon.dodge = weaponFormValue.dodge;
       this.weapon.damage = weaponFormValue.damage;
-      this.weapon.hp = weaponFormValue.hp;
+      this.weapon.hp = weaponFormValue.hp;      
+      this.weaponService.updateWeapon(this.weapon);
       alert("Weapon updated");
     }
   }

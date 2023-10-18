@@ -2,7 +2,8 @@
 <ul class="weapons">
   <li *ngFor="let weapon of weapons">
     <a routerLink="/detail-weapon/{{weapon.id}}">
-      <span class="badge">{{weapon.id}}</span> {{weapon.name}}
+      <span class="badge">*</span> {{weapon.name}}
     </a>
   </li>
 </ul>
+<button type="button" (click)="addWeapon()">add weapon</button>

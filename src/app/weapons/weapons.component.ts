@@ -22,4 +22,9 @@ export class WeaponsComponent implements OnInit {
     this.weaponService.getWeapons()
     .subscribe(weapons => this.weapons = weapons);
   }
+
+  addWeapon(): void {
+    const weapon = { name: "New Weapon", attack: 0, dodge: 0, damage: 0, hp: 0, points: 0} as unknown as Weapon;
+    this.weaponService.addWeapon(weapon);
+  }
 }

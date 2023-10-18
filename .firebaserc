@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tour-of-heroes-ehrlere": {
+      "hosting": {
+        "angular-tour-of-heroes-ehrlere": [
+          "tour-of-heroes-ehrlere"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tour-of-heroes-ehrlere"
+  }
+}

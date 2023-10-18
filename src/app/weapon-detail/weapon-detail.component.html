@@ -40,6 +40,7 @@
     </form>
   
     <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="deleteWeapon()">delete</button>
     <button type="button" (click)="resetPoint()">reset</button>
     <button type="submit" (click)="savePoints()" [disabled]="(0 - this.weaponForm.value.attack - this.weaponForm.value.dodge - this.weaponForm.value.damage - this.weaponForm.value.hp) != 0 || weaponForm.invalid">Save</button>
   </div>
