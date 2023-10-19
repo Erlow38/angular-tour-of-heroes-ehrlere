@@ -52,3 +52,20 @@
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
+
+select {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 1em;
+  padding: .5rem;
+  width: 10rem;
+}
+
+input {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 1em;
+  padding: .5rem;
+  width: 10rem;
+  border-radius: 6px;
+}

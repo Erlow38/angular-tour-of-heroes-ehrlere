@@ -20,7 +20,7 @@ export class HeroService {
     // Solution 1 : Transformation en une liste d'objets "prototype" de type Hero
     // get documents (data) from the collection using collectionData
     return collectionData(heroCollection, { idField: 'id' }) as Observable<Hero[]>;
-  }
+    }
 
   getHero(id: string): Observable<Hero> {
     // Récupération du DocumentReference
@@ -53,5 +53,4 @@ export class HeroService {
     updateDoc(heroDocument, newHeroJSON);
   }
 
-    
 }

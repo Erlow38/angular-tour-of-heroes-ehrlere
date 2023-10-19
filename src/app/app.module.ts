@@ -14,6 +14,7 @@ import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore'; 
+import { CustomOrderByPipe } from './custom-order-by-pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     MessagesComponent,
     DashboardComponent,
     WeaponsComponent,
-    WeaponDetailComponent
+    WeaponDetailComponent,   
+    CustomOrderByPipe
   ],
   imports: [
     BrowserModule,

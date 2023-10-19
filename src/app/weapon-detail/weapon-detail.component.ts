@@ -89,7 +89,9 @@ export class WeaponDetailComponent {
   
 
   goBack(): void {
-    this.location.back();
+    if (confirm("Are you sure to leave this page ? All unsaved changes will be lost.")) {
+      this.location.back();
+    }
   }
 
 }

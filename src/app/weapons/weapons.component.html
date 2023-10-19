@@ -1,6 +1,18 @@
+<div class="filter">
+  <label>Filter:</label>
+  <select [(ngModel)]="selectedFilter" id="filter-select">
+    <option value="defaultSort">-- select a sort --</option>
+    <option value="name">name</option>
+    <option value="attack">attack</option>
+    <option value="dodge">dodge</option>
+    <option value="damage">damage</option>
+    <option value="hp">hp</option>
+  </select>
+  <input [(ngModel)]="searchWeapon" (input)="searchWeapons()" type="search" id="search-weapon" placeholder="search a weapon">
+</div>
 <h2>My Weapons</h2>
 <ul class="weapons">
-  <li *ngFor="let weapon of weapons">
+  <li *ngFor="let weapon of weapons | customOrderBy: selectedFilter">
     <a routerLink="/detail-weapon/{{weapon.id}}">
       <span class="badge">*</span> {{weapon.name}}
     </a>

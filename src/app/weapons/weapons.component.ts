@@ -11,6 +11,8 @@ import { WeaponService } from '../weapon.service';
 })
 export class WeaponsComponent implements OnInit {
   weapons: Weapon[] = [];
+  selectedFilter: string = 'defaultSort';
+  searchWeapon: string = "";
 
   constructor(private weaponService: WeaponService) { }
 
@@ -26,5 +28,13 @@ export class WeaponsComponent implements OnInit {
   addWeapon(): void {
     const weapon = { name: "New Weapon", attack: 0, dodge: 0, damage: 0, hp: 0, points: 0} as unknown as Weapon;
     this.weaponService.addWeapon(weapon);
+  }
+
+  searchWeapons(): void {
+    if (this.searchWeapon) {
+      this.weapons = this.weapons.filter(hero => hero.name.toLowerCase().includes(this.searchWeapon.toLowerCase()));
+    } else {
+      this.getWeapons();
+    }
   }
 }
