@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importez Validators
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
-import { Weapon } from '../weapon';
-import { WeaponService } from '../weapon.service';
+import { Hero } from '../../data/hero';
+import { HeroService } from '../../service/hero.service';
+import { Weapon } from '../../data/weapon';
+import { WeaponService } from '../../service/weapon.service';
 
 @Component({
   selector: 'app-hero-detail',

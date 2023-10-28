@@ -1,8 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Weapon } from '../weapon';
+import { Weapon } from '../../data/weapon';
 
-import { WeaponService } from '../weapon.service';
+import { WeaponService } from '../../service/weapon.service';
 
 @Component({
   selector: 'app-weapons',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Weapon } from '../weapon';
-import { WeaponService } from '../weapon.service';
+import { Weapon } from '../../data/weapon';
+import { WeaponService } from '../../service/weapon.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
 import { Location } from '@angular/common';
 

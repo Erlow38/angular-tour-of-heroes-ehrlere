@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable} from 'rxjs';
 
-import { Hero } from './hero';
+import { Hero } from '../data/hero';
 import { docData, doc, deleteDoc, Firestore, collectionData, collection, addDoc, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({ providedIn: 'root' })

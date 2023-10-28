@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { docData, doc, deleteDoc, Firestore, collectionData, collection, addDoc, updateDoc } from '@angular/fire/firestore';
-import { Weapon } from './weapon';
+import { Weapon } from '../data/weapon';
 
 @Injectable({ providedIn: 'root' })
 export class WeaponService {
