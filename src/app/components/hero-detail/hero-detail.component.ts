@@ -54,7 +54,7 @@ export class HeroDetailComponent {
     .subscribe(weapons => this.weapons = weapons);
   }
 
-  pointAttribut(attribute: string): void {
+  pointAttribut(): void {
     if (this.hero) {
       const heroFormValue = this.heroForm.value;
       // Calculez le total des points en fonction des attributs

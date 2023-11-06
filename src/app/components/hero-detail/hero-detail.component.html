@@ -15,28 +15,28 @@
     </div>
     <div class="attribute-container">
       <label for="hero-attack">Hero attack: </label>
-      <input (input)="pointAttribut('attack')" id="hero-attack" formControlName="attack" type="number">
+      <input (input)="pointAttribut()" id="hero-attack" formControlName="attack" type="number">
       <div class="attribute-error" *ngIf="heroForm.controls['attack'].hasError('min')">
         1 point minimum is required.
       </div>
     </div>
     <div class="attribute-container">
       <label for="hero-dodge">Hero dodge: </label>
-      <input (input)="pointAttribut('dodge')" id="hero-dodge" formControlName="dodge" type="number">
+      <input (input)="pointAttribut()" id="hero-dodge" formControlName="dodge" type="number">
       <div class="attribute-error" *ngIf="heroForm.controls['dodge'].hasError('min')">
         1 point minimum is required.
       </div>
     </div>
     <div class="attribute-container">
       <label for="hero-damage">Hero damage: </label>
-      <input (input)="pointAttribut('damage')" id="hero-damage" formControlName="damage" type="number">
+      <input (input)="pointAttribut()" id="hero-damage" formControlName="damage" type="number">
       <div class="attribute-error" *ngIf="heroForm.controls['damage'].hasError('min')">
         1 point minimum is required.
       </div>
     </div>
     <div class="attribute-container">
       <label for="hero-health">Hero health: </label>
-      <input (input)="pointAttribut('hp')" id="hero-health" formControlName="hp" type="number">
+      <input (input)="pointAttribut()" id="hero-health" formControlName="hp" type="number">
       <div class="attribute-error" *ngIf="heroForm.controls['hp'].hasError('min')">
         1 point minimum is required.
       </div>
