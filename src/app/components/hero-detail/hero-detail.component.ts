@@ -66,10 +66,10 @@ export class HeroDetailComponent {
       const hpAttribuable = 40 - heroFormValue.attack - heroFormValue.dodge - heroFormValue.damage;
 
       // Mettez à jour les validateurs max en fonction de remainingPoints
-      this.heroForm.controls['attack'].setValidators([Validators.min(1), Validators.max(attackAttribuable)]);
-      this.heroForm.controls['dodge'].setValidators([Validators.min(1), Validators.max(dodgeAttribuable)]);
-      this.heroForm.controls['damage'].setValidators([Validators.min(1), Validators.max(damageAttribuable)]);
-      this.heroForm.controls['hp'].setValidators([Validators.min(1), Validators.max(hpAttribuable)]);
+      this.heroForm.controls['attack'].setValidators([Validators.min(1), Validators.max(attackAttribuable), Validators.required]);
+      this.heroForm.controls['dodge'].setValidators([Validators.min(1), Validators.max(dodgeAttribuable), Validators.required]);
+      this.heroForm.controls['damage'].setValidators([Validators.min(1), Validators.max(damageAttribuable), Validators.required]);
+      this.heroForm.controls['hp'].setValidators([Validators.min(1), Validators.max(hpAttribuable), Validators.required]);
 
       // Pour appliquer les nouveaux validateurs, appelez updateValueAndValidity
       this.heroForm.controls['attack'].updateValueAndValidity();
